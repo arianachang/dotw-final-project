@@ -1,32 +1,50 @@
 var randColor1, randColor2;
 var emojis = [];
-var octopus, tears;
+var octopus, tears, moon, onehundred, shoe, pray, angel, thinking, eyeroll;
 var stickers = [];
 var currentIndex = 0;
 
 function preload() {
   octopus = loadImage("images/Octopus_Emoji.png");
   tears = loadImage("images/Tears_Of_Joy.png");
+  moon = loadImage("images/Dark_Blue_Moon_Emoji.png");
+  onehundred = loadImage("images/100_Emoji.png");
+  shoe = loadImage("images/Athletic_Shoe_Emoji.png");
+  pray = loadImage("images/Praying_Emoji.png");
+  angel = loadImage("images/White_Baby_Angel_Emoji.png");
+  thinking = loadImage("images/Thinking_Face_Emoji.png");
+  eyeroll = loadImage("images/Face_With_Rolling_Eyes_Emoji.png");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noCursor();
+  
   randColor1 = color(random(255), random(255), random(255));
   randColor2 = color(random(150), random(150), random(150));
-  imageMode(CENTER);
   setGradient(0, 0, width, height, randColor1, randColor2);
+  
+  imageMode(CENTER);
+
   emojis.push(octopus);
   emojis.push(tears);
+  emojis.push(moon);
+  emojis.push(onehundred);
+  emojis.push(shoe);
+  emojis.push(pray);
+  emojis.push(angel);
+  emojis.push(thinking);
+  emojis.push(eyeroll);
 }
 
 function draw() {
   setGradient(0, 0, width, height, randColor1, randColor2);
 
-  image(emojis[currentIndex], mouseX, mouseY, 30, 30);
-  
   for(var i=0; i<stickers.length; i++) {
     stickers[i].display();
   }
+  
+  image(emojis[currentIndex], mouseX, mouseY, 30, 30);
 }
 
 function Sticker(type, xPos, yPos) {
@@ -39,6 +57,11 @@ function Sticker(type, xPos, yPos) {
 }
 
 function mouseDragged() {
+    var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY);
+    stickers.push(sticker);
+}
+
+function mousePressed() {
     var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY);
     stickers.push(sticker);
 }
