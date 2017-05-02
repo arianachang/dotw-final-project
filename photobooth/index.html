@@ -30,10 +30,46 @@
 
     <script src="sketch.js" type="text/javascript"></script>
 
-    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;}
-    #game {width:640px; height:480px; margin:auto;}</style>
+    <style>
+    body { padding: 0; margin: 0; background-color:#343434;}
+    canvas { vertical-align: top; }
+    #game { width:640px; height:480px; margin:auto; }
+    input[type="radio"] {
+    display:none;
+    }
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid #0DFF92;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #0DFF92;
+}
+
+input[type=radio]:checked ~ label{
+  color: #0DFF92;
+}
+label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+</style>
   </head>
   <body>
-      <p id="game"></p>
+    <form>
+        <input type="radio" name="effect" id="popart" value="popart"><label for="popart">Pop Art</label><div class="check"><div class="inside"></div></div><br>
+        <input type="radio" name="effect" id="invert" value="invert"><label for="invert"><span class="radio">Invert</span></label><div class="check"><div class="inside"></div></div><br> 
+        <input type="radio" name="effect" id="cat" value="cat"><label for="cat"><span class="radio">Cat Filter</span></label><div class="check"><div class="inside"></div></div><br>
+        <input type="radio" name="effect" id="point" value="pointillism"><label for="point"><span class="radio">Pointillism</span></label><div class="check"><div class="inside"></div></div><br>
+    </form>
+    <p id="game"></p>
   </body>
 </html>

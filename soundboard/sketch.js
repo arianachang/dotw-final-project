@@ -23,9 +23,13 @@ function preload() {
   
   ross = loadImage("images/rick_ross.png");
   rossSound = loadSound("sounds/rick_ross.wav");
-  
+
+  keef = loadImage("images/keef.png");
+  keefSound = loadSound("sounds/Chief Keef Bang Bang Sound Effect.mp3");
+
   drum = loadImage("images/drum.png");
   horn = loadImage("images/horn.png");
+  hornSound = loadSound("sounds/airhorn.mp3");
   //hey = loadImage("images/hey.png");
   //sound = loadSound("sounds/sound.wav");
 }
@@ -36,9 +40,10 @@ function setup() {
   imageMode(CENTER);
   
   heads.push(new Head(metro, 100, 120, metroSound));
-  heads.push(new Head(desiigner, 200, 120, desiignerSound));
-  heads.push(new Head(pusha, 300, 120, pushaSound));
-  heads.push(new Head(ross, 400, 120, rossSound));
+  heads.push(new Head(desiigner, 210, 120, desiignerSound));
+  heads.push(new Head(pusha, 320, 120, pushaSound));
+  heads.push(new Head(ross, 430, 120, rossSound));
+  heads.push(new Head(keef, 540, 120, keefSound));
 }
 
 function draw() {
@@ -50,11 +55,17 @@ function draw() {
     heads[i].display();
   }
   
-  image(horn, 50, 50, 50, 50);
-  image(drum, 400, 50, 50, 50);
+  image(horn, 50, 50, 40, 20);
+  image(drum, 800, 50, 50, 50);
   //image(desiigner, 100, 120, 80, 100);
   //image(schoolboy, 200, 120, 80, 100);
-  
+
+  for(var i=0; i<heads.length; i++) {
+    if(dist(mouseX, mouseY, heads[i].xPos, heads[i].yPos) < 30) {
+      heads[i].onHover();
+    }
+  }
+
   image(mouse, mouseX, mouseY, 30, 37);
 }
 
@@ -76,7 +87,9 @@ function Head(type, xPos, yPos, sound) {
   }
   
   this.onHover = function() {
-    
+    //translate(windowWidth/2, windowHeight/2);
+    //rotate(PI/2);
+    this.display();
   }
   
   this.play = function() {

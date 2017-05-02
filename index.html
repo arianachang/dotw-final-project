@@ -7,6 +7,10 @@
 			font-family:"Roboto", sans-serif;
 			letter-spacing: 1.5px;
 			font-size:2em;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -100%);
 		}
 
 		a {
@@ -34,19 +38,22 @@
 			display:inline-block;
 		}
 
+		a:hover + #sticker {
+			display:inline-block;
+		}
+
 		img {
 			width: 1em;
 			height: 1em;
 			display:none;
 		}
 
-
 	</style>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 </head>
 <body>
 	
-	<a href="./stickerpad">stickerpad</a>
+	<a href="./stickerpad">stickerpad</a><img src="images/smiley.png" id="sticker">
 	<br><a href="./soundboard">soundboard</a><img src="images/notes.png" id="music">
 	<br><a href="./photobooth">photobooth</a><svg class="camera"><use xlink:href="images/photo-camera.svg#camera"/></svg>
 </body>
