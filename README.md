@@ -1,7 +1,7 @@
 # Drawing on the Web
 ## Final Project
 
-###[link to final project interface](http://i6.cims.nyu.edu/~ac4536/380/dotw-final-project)
+### [link to final project interface](http://i6.cims.nyu.edu/~ac4536/380/dotw-final-project)
 
 ### Outline
 
