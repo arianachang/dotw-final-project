@@ -4,6 +4,7 @@ var octopus, tears, moon, onehundred, shoe, pray, angel, thinking, eyeroll;
 var lips, eyes, highfive, peace, poop, peach, jeans;
 var pillar, fire, hat, tshirt, crown;
 var glasses, cat, heart, shroom;
+var alien, flex, dog, bee, sun, banana, womansShirt;
 var stickers = [];
 var currentIndex = 0;
 var brush;
@@ -34,7 +35,14 @@ function preload() {
   cat = loadImage("images/CAT_emoji_icon_png.png");
   heart = loadImage("images/Sparkling_Pink_Heart_Emoji.png");
   shroom = loadImage("images/Mushroom_emoji_icon_png.png");
-  glasses = loadImage("images/Glasses_Emoji.png")
+  glasses = loadImage("images/Glasses_Emoji.png");
+  alien = loadImage("images/Alien_Emoji.png");
+  flex = loadImage("images/Flexing_Muscles_Emoji.png");
+  dog = loadImage("images/Dog_Emoji.png");
+  bee = loadImage("images/honeybee_emoji_icon_png.png");
+  sun = loadImage("images/The_Sun_Face_Emoji.png");
+  banana = loadImage("images/Banana_Emoji.png");
+  womansShirt = loadImage("images/Womans_Clothes_Emoji.png");
   shutter = loadSound("images/camera-shutter-click-03.mp3");
 }
 
@@ -49,31 +57,47 @@ function setup() {
   
   imageMode(CENTER);
 
-  emojis.push(octopus);
+  //faces
   emojis.push(tears);
-  emojis.push(moon);
-  emojis.push(onehundred);
-  emojis.push(shoe);
-  emojis.push(pray);
-  emojis.push(angel);
   emojis.push(thinking);
   emojis.push(eyeroll);
+  emojis.push(angel);
+  emojis.push(moon);
+  emojis.push(sun);
+  emojis.push(poop);
+  emojis.push(alien);
+
+  //body parts
+  emojis.push(pray);
+  emojis.push(flex);
+  emojis.push(peace);
+  emojis.push(highfive);
   emojis.push(lips);
   emojis.push(eyes);
-  emojis.push(highfive);
-  emojis.push(peace);
-  emojis.push(poop);
-  emojis.push(peach);
+
+  //clothing
+  emojis.push(shoe);
+  emojis.push(glasses);
   emojis.push(jeans);
-  emojis.push(pillar);
-  emojis.push(fire);
   emojis.push(hat);
   emojis.push(crown);
   emojis.push(tshirt);
+  emojis.push(womansShirt);
+
+  //animals & food
+  emojis.push(octopus);
+  emojis.push(pillar);
   emojis.push(cat);
   emojis.push(shroom);
+  emojis.push(peach);
+  emojis.push(banana);
+  emojis.push(dog);
+  emojis.push(bee);
+
+  //misc
+  emojis.push(onehundred);
+  emojis.push(fire);
   emojis.push(heart);
-  emojis.push(glasses);
 
   brush = new Cursor();
 }
@@ -89,7 +113,7 @@ function draw() {
 }
 
 function Cursor() {
-  this.size = 30;
+  this.size = 40;
   this.type = emojis[0];
 
   this.display = function() {
@@ -108,12 +132,12 @@ function Sticker(type, xPos, yPos, size) {
 }
 
 function mouseDragged() {
-    var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY, cursor.size);
+    var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY, brush.size);
     stickers.push(sticker);
 }
 
 function mousePressed() {
-    var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY, cursor.size);
+    var sticker = new Sticker(emojis[currentIndex], mouseX, mouseY, brush.size);
     stickers.push(sticker);
 }
 
@@ -132,25 +156,23 @@ function keyTyped() {
   }
   else if(key === 'z') {
     //make cursor img smaller
-    cursor.size -= 5;
+    brush.size -= 5;
 
   }
   else if(key === 'x') {
     //make cursor img larger
-    cursor.size += 5;
+    brush.size += 5;
   }
 }
 
 function keyPressed() {
   if(keyCode === LEFT_ARROW && currentIndex !== 0) {
-    //console.log('left arrow pressed');
     currentIndex -= 1;
-    cursor.type = emojis[currentIndex];
+    brush.type = emojis[currentIndex];
   }
   else if(keyCode === RIGHT_ARROW && currentIndex !== emojis.length-1) {
-    //console.log('right arrow pressed');
     currentIndex += 1;
-    cursor.type = emojis[currentIndex];
+    brush.type = emojis[currentIndex];
   }
 }
 

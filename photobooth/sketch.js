@@ -9,7 +9,7 @@ function preload() {
   ears = loadImage("images/catears.png");
   fish = loadImage("images/fish.png");
   chomp = loadSound("images/chomp.wav");
-  fishBone = loadImage("images/fishBone.png");
+  fishBone = loadImage("images/fishbone.png");
   shutter = loadSound("images/camera-shutter-click-03.mp3");
 }
 
@@ -80,7 +80,7 @@ function Fish() {
     }
     if (dist(this.x, this.y, mouthX, mouthY) < 50) {
       chomp.play();
-      this.y = random(-100, 0);
+      this.y = -100;
       this.ySpeed = 0;
     }
     image(fish, this.x, this.y, 50, 60);
@@ -110,10 +110,10 @@ function CatFilter() {
     noStroke();
 
     //whiskers & nose
-    image(whiskers, faceArray[62][0], faceArray[62][1], 358, 51);
+    image(whiskers, faceArray[62][0], faceArray[62][1], 150, 54);
     
     //cat ears
-    image(ears, faceArray[33][0], faceArray[33][1]-70, 350, 70);
+    image(ears, faceArray[33][0], faceArray[33][1]-70, 200, 51);
 
     // compute the distance between the top of the upper lip and the bottom of lower lip
     var lipDistance = dist(faceArray[47][0], faceArray[47][1], faceArray[53][0], faceArray[53][1]);
